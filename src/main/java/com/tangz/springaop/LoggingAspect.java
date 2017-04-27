@@ -7,8 +7,8 @@ import org.aspectj.lang.annotation.Before;
 @Aspect
 public class LoggingAspect {
 
-    @Before("execution(* com.tangz.springaop.Calculator.*(..))")
-    private void arithmeticDoLog(JoinPoint jp) {
-        System.out.println(jp.toString());
+    @Before("execution(* com.tangz.springaop.Calculator.*(..)) && args(a, ..)")
+    private void arithmeticDoLog(JoinPoint jp, int a) {
+        System.out.println(a + ": " + jp.toString());
     }
 }
